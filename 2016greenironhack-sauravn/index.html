@@ -1,0 +1,148 @@
+<!--
+Saurav Nanda - IronHack 2016
+
+**Took a copy of demo project code, and modifying it further as per my requirements**
+-->
+
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="descriptions" content="Place to Eat">
+	<meta name="author" content="Charles Song">
+
+	<link rel="stylesheet" href="css/tutorial.css" type="text/css"/>
+	<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="js/RadarChart.js"></script>
+	<script src="js/tutorial.js" type="text/javascript"></script>
+	<script src="js/script.js" type="text/javascript" ></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+	<!-- For the fancy drop down -->
+	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+	<noscript><link rel="stylesheet" type="text/css" href="css/noJS.css" /></noscript>
+	<!-- For the social media share buttons -->
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "b7aa0060-f57d-4ef8-aa69-7420144f6b4b", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+	<!-- For the bullet graph -->
+
+  </head>
+  <body>
+	<div id="header">
+	</div>
+	<div id="content">
+		<div id="map">
+		</div>
+		<div id="side-menu" class="menu-line">
+			
+			<div id="menu-cover" class="menu-line">
+				<div class="container">
+				
+				<section class="main">
+				<div class="wrapper-demo">
+					<a class="thumbnail" href="images/logo.png" data-position="left center"><img src="images/logo.png" alt="" /></a>
+					<a class="thumbnail" href="images/logo.png" data-position="right center"><img src="images/recipe.png" alt="" /></a>
+					<div id="dd" class="wrapper-dropdown-3" tabindex="1">
+						<span>West Lafayette</span>
+						<ul class="dropdown">
+							<li><a href="#">Indianapolis</a></li>
+							<li><a href="#">Chicago</a></li>
+							<li><a href="#">West Lafayette</a></li>
+						</ul>
+						
+					</div>
+					
+				​</div>
+			</section>
+			<!-- adding social media share buttons -->
+			<span class='st_facebook_hcount' displayText='Facebook'></span>
+			<span class='st_twitter_hcount' displayText='Tweet'></span>
+			<span class='st_googleplus_hcount' displayText='Google +'></span>	
+			</div>
+				<div id="basic-info" class="menu-line">
+					<div id="weather" class="menu-line">sunny!</div>
+				</div>
+				<div id="position-info">
+					<div id="market" class="menu-line">
+						<div id="market-name" class="test"></div>
+						<div id="website" class="test"></div>
+					</div>
+					<div id="website" class="menu-line"></div>
+					<div id="street-name" class="menu-line"></div>
+					<div id="open-status" class="menu-line"></div>
+				</div>
+				<div id="chart">
+				</div>
+				<div id="scores" class="menu-line"></div>
+				<div id="comments" class="menu-line"></div>
+
+			</div>
+			
+		</div>
+
+	</div>
+	<div id="footer">
+	</div>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWhs2R0Maa3QQtLZbtbstPXK7w9cgmJho&callback=initMap"></script>
+
+	<a title="Real Time Analytics" href="http://clicky.com/100881512"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+	
+	<script src="//static.getclicky.com/js" type="text/javascript"></script>
+	<script type="text/javascript">try{ clicky.init(100881512); }catch(e){}</script>
+	<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100881512ns.gif" /></p></noscript>
+		
+		<!-- jQuery if needed (For the drop down action) -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+			function DropDown(el) {
+				this.dd = el;
+				this.placeholder = this.dd.children('span');
+				this.opts = this.dd.find('ul.dropdown > li');
+				this.val = '';
+				this.index = -1;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						return false;
+					});
+
+					obj.opts.on('click',function(){
+						var opt = $(this);
+						obj.val = opt.text();
+						obj.index = opt.index();
+						obj.placeholder.text(obj.val);
+					});
+				},
+				getValue : function() {
+					return this.val;
+				},
+				getIndex : function() {
+					return this.index;
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-3').removeClass('active');
+				});
+
+			});
+
+		</script>
+		
+		
+  </body>
+</html>

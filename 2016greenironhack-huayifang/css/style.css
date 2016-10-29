@@ -1,0 +1,59 @@
+
+
+html, body { 
+height: 100%; 
+margin: 0; 
+padding: 0; 
+}
+
+#map{
+	position: absolute;
+	left: 40%;
+    width: 60%;
+    height: 100%;
+}
+
+.content{
+	font-family: cursive;
+	font-size: 16;
+}
+
+#information{
+	background-color: #edeff1;
+	position: absolute;
+	width: 40%;
+	height: 100%;
+}
+
+#input{
+	border: 3px solid #1B1F7C;
+	position: absolute;
+	width: 50%;
+	height: 50%;
+}
+
+#analysis{
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+}
+
+#weather{
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 50%;
+	height: 50%;
+}
+
+#storeInfo{
+	border: 3px solid #73AD21;
+	position: absolute;
+	top: 50%;
+	width: 50%;
+	height: 50%;
+}
+
